@@ -17,3 +17,25 @@ $(function() {
         event.preventDefault();
     });
 });
+
+//jQuery hide and show for class tracks
+$( "#mwf" ).click(function() {
+  $( ".tth" ).hide( "fast", function() {
+    // Use arguments.callee so we don't need a named function
+    $( this ).prev().hide( "fast", arguments.callee );
+  });
+  $( ".mwf" ).show( 50 );
+});
+
+$( "#tth" ).click(function() {
+  $( ".mwf" ).hide( "fast", function() {
+    // Use arguments.callee so we don't need a named function
+    $( this ).prev().hide( "fast", arguments.callee );
+  });
+  $( ".tth" ).show( 50 );
+});
+
+$( "#all" ).click(function() {
+  $( ".mwf" ).show( 50 );
+  $( ".tth" ).show( 50 );
+});
