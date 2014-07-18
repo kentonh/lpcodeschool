@@ -18,3 +18,25 @@
 pre, code {
 	text-align: left;
 }
+
+.m{
+	background: #CF2430;
+	color: #fff;
+}
+
+.w{
+	background: #10365F;
+	color: #fff;
+}
+.f{
+	background: #CECF24;
+	color: #fff;
+}
+
+.t{
+	background: #2982E1;
+	color: #fff;
+}
+.th{
+	background: #E9F4FF;
+}
