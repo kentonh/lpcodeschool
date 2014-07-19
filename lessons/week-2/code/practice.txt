@@ -1,0 +1,94 @@
+MONDAY TUESDAY
+
+Arithmetic practice
+Here are some exercises for you to practice arithmetic in JavaScript:
+
+Add, subtract, multiply, and divide some numbers.
+Find the remainder of dividing two numbers by using the modulo operator.
+Divide a number by 0.
+Divide 0 by 0.
+
+Variables practice
+Here are a few exercises for you to practice using variables:
+
+Set a variable called favoriteNumber equal to your favorite number.
+Calculate what your favorite number divided by 2 is.
+Set another variable called michaelsFavorite equal to 13.
+Change the value of michaelsFavorite to 7.
+Subtract your favorite number from mine.
+Change the value of my favorite number to be 26 times its current value.
+
+Methods practice
+Practice using the methods you've learned about:
+
+Convert a number to exponential notation.
+Convert it back.
+Specify the number of decimals it should have.
+Repeat all of these using a variable set equal to a number.
+
+Strings Practice
+Practice using strings:
+
+Type a greeting to your best friend.
+Set a variable equal to a string.
+Call a method on that variable.
+Make sure you're clear on the difference between "9" with quotes and 9 without.
+Check out the MDN's documentation of string methods ( https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/prototype#Methods ) and try out at least five yourself. If some of them don't make sense, don't worry about it - just try the ones that do. (Stick to the section labelled Methods unrelated to HTML.)
+
+Functions practice
+Practice using JavaScript functions:
+
+Use alert() to pop up a dialog box.
+Use confirm() to ask a yes or no question.
+Use prompt() to ask a question.
+Save the response to the prompt() as a variable, and then run a string method of your choice on it.
+
+Practice writing functions
+Write functions of your own to:
+
+take somebody's name and say a greeting to them;
+subtract two numbers;
+multiply two numbers;
+divide two numbers.
+Use the example of how to add two numbers from the previous lesson as a reference.
+
+WEDNESDAY
+
+jQuery practice
+Re-create the page from the last lesson.
+Add an <h2> and bind an event handler to it with .click(). Pass in a callback that contains an alert().
+Do the same for a <ul>.
+Swap out the .click() method for .dblclick() and .hover() in a couple places.
+
+THURSDAY
+
+jQuery effects practice
+Let's get some practice using jQuery effects.
+
+On your cat's homepage, add some text that alternates between saying "Hide/show images", and toggles the images appropriately.
+On your vacation page, make a few of the sections hidden by default, with a bit of teaser text that expands when you click on it (e.g., "Click to learn about the giant sandcastles of this fabulous country!").
+On any pages of your choosing, try fading and sliding elements with .fadeIn(), .fadeOut(), .fadeToggle(), .slideDown(), .slideUp(), and .slideToggle().
+
+FRIDAY
+
+Manipulation and traversal practice
+Okay, your turn. Practice adding some interactivity to your web pages:
+
+Continue on from the talk.html page from the last lesson. I only added the deleting functionality to one of the buttons. Now, you add it to the other ones.
+Add a feature so that each message has an "x" next to it. When you click the "x", it should delete the line.
+Make a "cat vs dog" page - if you click a button for the cat to meow, the dog should bark back, and vis versa. Include the same deleting functionality as in talk.html (but re-write the code yourself!).
+Extra credit: Have you noticed how there's a lot of repetition in you JavaScript? On talk.html, there's three sections that select a button, attach a click event listener, and pass a callback that looks the same except for the message. The only things that differ among them are the ID of the button and the message. Eliminate this repetition by creating a function that accepts two arguments for the ID and the message, and then finds the appropriate button and binds a callback with the appropriate message.
+
+Forms practice
+Okay, now it's your turn.
+
+Make a Mad Libs of your own.
+Make a form letter where the user inputs their name, and they get back a letter addressed to them.
+Create a page that asks the user to type something into a field, and when they submit the form, have the page say it back to them in all uppercase.
+
+jQuery attributes practice
+Here are some exercises for you to practice using jQuery:
+
+Most people like dark text on a light background, but some people prefer light text on a dark background. Update one of your pages to include a button that lets your users switch to light on dark.
+Now, update this page so that users can switch back to the original color scheme.
+Update your boring lecture page so that when somebody clicks on a paragraph, it highlights it and adds a box around the edges.
