@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Labor Party | Code School</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom CSS -->
+    <link href="../../css/scrolling-nav.css" rel="stylesheet" type="text/css">
+    <link href="../../css/custom.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#page-top">Labor Party Code School</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="../../lessons/week-1/">Week 1</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="../../lessons/week-2/">Week 2</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="../../lessons/week-3/">Week 3</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <section id="intro" class="intro-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Git Additional Reading</h1>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="arithmetic" class="videos-section monday tuesday">
+        <div class="container">
+
+
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Making commits</h2>
+                    <p>It&#39;s not always clear when to make a commit. To start, I&#39;d suggest committing every time you finish the &quot;refactor&quot; step after making a spec pass.</p>
+                    <p>Another good rule of thumb is that you should never have to write the word &quot;and&quot; in a commit message. If you do, it should probably have been two commits. </p>
+                    <p>The best description I&#39;ve heard of when to make commits is that they should represent a <a href="http://git-scm.com/book/en/Distributed-Git-Contributing-to-a-Project#Commit-Guidelines">&quot;logically separate changeset&quot;</a>.</p>
+                    <p>Remember to make commits in the present tense, like this:</p>
+                    <pre><code class="prettyprint">add cookie eating feature
+                    </code></pre>
+                    <p><em>not</em> like this:</p>
+                    <pre><code class="prettyprint">adds cookie eating feature
+                    </code></pre>
+                    <p>Another way to think of it is that the message should answer the question and complete the sentence, &quot;What will this commit do when applied? It will... &quot;.</p>
+                    <h2>READMEs</h2>
+                    <p>Treehouse doesn&#39;t give you much information on what to put in your README files. Here are a few things that you should include in every README:</p>
+                    <ul>
+                    <li>Setup instructions. This is less important when working with flat HTML/CSS/JS files like we are now, but you should still include something instructing the user to clone the repository and then open the HTML file in the browser.</li>
+                    <li>Copyright and licensing information. The most common licenses for open source projects are the MIT license, which lets users use your code in any way, and the GPL v2, which requires your users to open source any changes they make to your code or any projects which use your code. To keep things simple, you can simply put the name of the license in your README, rather than the full text.</li>
+                    <li>Names of the authors and optionally contact information</li>
+                    <li>Known bugs</li>
+                    </ul>
+                    <p>Here are a couple examples of great READMEs: <a href="https://github.com/plataformatec/simple_form">simple_form</a> and <a href="https://github.com/thoughtbot/capybara-webkit">capybara-webkit</a>.</p>
+                    <h2>Configuring your own computer</h2>
+                    <p>The lesson mentions that you should set your name and email on your computer using <code class="prettyprint">git config --global</code>. There are two other configurations I&#39;d suggest you make on your computer. First, tell Git to use color in its output:</p>
+                    <pre><code class="prettyprint">$ git config --global color.ui true
+                    </code></pre>
+                    <p>Next, you might notice that there are some files that are not part of your project; for example, Macs have hidden files in most directories called <code class="prettyprint">.DS_Store</code>, and Windows directories often contain files called <code class="prettyprint">Thumbs.db</code>. To ignore these files, create a file in your home directory called <code class="prettyprint">.gitignore_global</code>. Now you&#39;ll need to add some rules of what types of files to ignore. Github has a <a href="https://help.github.com/articles/ignoring-files">great example</a> that you can copy into your file. Finally, we need to tell Git to use this as a rule for all of the projects you set up on this computer:</p>
+                    <pre><code class="prettyprint">git config --global core.excludesfile ~/.gitignore_global
+                    </code></pre>
+                    <p>Finally, to make Git use Sublime instead of vim when it needs to interact with you, run <code class="prettyprint">$ echo &quot;export EDITOR=&#39;subl -w&#39;&quot; &gt;&gt; ~/.bash_profile</code>.</p>
+                    <p>Git prefers that you add an empty line to the end of every file (it&#39;s got something to do with cross-operating system compatibility). Rather than having to remember to do so on every file you create, you can set up Sublime to do this for you. Click the <em>Sublime Text 2</em> menu, <em>Preferences</em>, <em>Settings - User</em>, and then add this to the settings:</p>
+                    <pre><code class="prettyprint">&quot;ensure_newline_at_eof_on_save&quot;: true
+                    </code></pre>
+                    <p>Git (and most programmers) also doesn&#39;t like it when you have trailing spaces at the end of your lines. There is a preference to remove those in Sublime, too:</p>
+                    <pre><code class="prettyprint">&quot;trim_trailing_white_space_on_save&quot;: true
+                    </code></pre>
+                    <p>It&#39;s also very standard to use two spaces instead of tabs for indenting - different computers show tabs as taking different amount of room, but they all represent spaces the same way. Add these preferences in Sublime:</p>
+                    <pre><code class="prettyprint">&quot;tab_size&quot;: 2,
+                    &quot;translate_tabs_to_spaces&quot;: true
+                    </code></pre>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
