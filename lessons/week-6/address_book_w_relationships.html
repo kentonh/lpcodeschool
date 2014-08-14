@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Labor Party | Code School</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom CSS -->
+    <link href="../../css/scrolling-nav.css" rel="stylesheet" type="text/css">
+    <link href="../../css/custom.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#page-top">Labor Party Code School</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="../../lessons/week-6/">Back to Week 6 Lessons</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <section id="arithmetic" class="videos-section monday tuesday">
+        <div class="container">
+
+            <div class="row">
+              <h1>Address book with relationships</h1>
+                <div class="col-lg-12">
+            <p>Now, let&#39;s incorporate what we&#39;ve learned into our address book page. We&#39;re going to start by changing the HTML a bit to add forms for the various address fields, and anticipate adding multiple addresses:</p>
+            <div class="filename">address-book.html</div>
+            <pre><code class="prettyprint html">&lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+              &lt;head&gt;
+                &lt;link href=&quot;css/bootstrap.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
+                &lt;link href=&quot;css/styles.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
+                &lt;script src=&quot;js/jquery-1.11.0.js&quot;&gt;&lt;/script&gt;
+                &lt;script src=&quot;js/scripts.js&quot;&gt;&lt;/script&gt;
+                &lt;title&gt;Address book&lt;/title&gt;
+              &lt;/head&gt;
+              &lt;body&gt;
+                &lt;div class=&quot;container&quot;&gt;
+                  &lt;h1&gt;Address book&lt;/h1&gt;
+
+                  &lt;div class=&quot;row&quot;&gt;
+                    &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;h2&gt;Add a contact:&lt;/h2&gt;
+                      &lt;form id=&quot;new-contact&quot;&gt;
+                        &lt;div class=&quot;form-group&quot;&gt;
+                          &lt;label for=&quot;new-first-name&quot;&gt;First name&lt;/label&gt;
+                          &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;new-first-name&quot;&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;form-group&quot;&gt;
+                          &lt;label for=&quot;new-last-name&quot;&gt;Last name&lt;/label&gt;
+                          &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;new-last-name&quot;&gt;
+                        &lt;/div&gt;
+
+                        &lt;div id=&quot;new-addresses&quot;&gt;
+                          &lt;div class=&quot;new-address&quot;&gt;
+                            &lt;div class=&quot;form-group&quot;&gt;
+                              &lt;label for=&quot;new-street&quot;&gt;Street&lt;/label&gt;
+                              &lt;input type=&quot;text&quot; class=&quot;form-control new-street&quot;&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;form-group&quot;&gt;
+                              &lt;label for=&quot;new-city&quot;&gt;City&lt;/label&gt;
+                              &lt;input type=&quot;text&quot; class=&quot;form-control new-city&quot;&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;form-group&quot;&gt;
+                              &lt;label for=&quot;new-state&quot;&gt;State&lt;/label&gt;
+                              &lt;input type=&quot;text&quot; class=&quot;form-control new-state&quot;&gt;
+                            &lt;/div&gt;
+                          &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;span class=&quot;btn btn-primary&quot; id=&quot;add-address&quot;&gt;Another address&lt;/span&gt;
+
+                        &lt;button type=&quot;submit&quot; class=&quot;btn&quot;&gt;Add&lt;/button&gt;
+                      &lt;/form&gt;
+
+                      &lt;h2&gt;Contacts:&lt;/h2&gt;
+                      &lt;ul id=&quot;contacts&quot;&gt;
+
+                      &lt;/ul&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;div id=&quot;show-contact&quot;&gt;
+                        &lt;h2&gt;&lt;/h2&gt;
+
+                        &lt;p&gt;First name: &lt;span class=&quot;first-name&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+                        &lt;p&gt;Last name: &lt;span class=&quot;last-name&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+                        &lt;p&gt;Addresses:&lt;/p&gt;
+                        &lt;ul id=&quot;addresses&quot;&gt;
+
+                        &lt;/ul&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/body&gt;
+            &lt;/html&gt;
+            </code></pre>
+            <p>If we&#39;re going to have multiple addresses per contact, we need a way to add fields for them. Let&#39;s start out with this code:</p>
+            <div class="filename">scripts.js</div>
+            <pre><code class="prettyprint javascript">$(document).ready(function() {
+              $(&quot;#add-address&quot;).click(function() {
+                $(&quot;#new-addresses&quot;).append(&#39;&lt;div class=&quot;new-address&quot;&gt;&#39; + 
+                                             &#39;&lt;div class=&quot;form-group&quot;&gt;&#39; + 
+                                               &#39;&lt;label for=&quot;new-street&quot;&gt;Street&lt;/label&gt;&#39; + 
+                                               &#39;&lt;input type=&quot;text&quot; class=&quot;form-control new-street&quot;&gt;&#39; + 
+                                             &#39;&lt;/div&gt;&#39; + 
+                                             &#39;&lt;div class=&quot;form-group&quot;&gt;&#39; + 
+                                               &#39;&lt;label for=&quot;new-city&quot;&gt;City&lt;/label&gt;&#39; + 
+                                               &#39;&lt;input type=&quot;text&quot; class=&quot;form-control new-city&quot;&gt;&#39; + 
+                                             &#39;&lt;/div&gt;&#39; + 
+                                             &#39;&lt;div class=&quot;form-group&quot;&gt;&#39; + 
+                                               &#39;&lt;label for=&quot;new-state&quot;&gt;State&lt;/label&gt;&#39; + 
+                                               &#39;&lt;input type=&quot;text&quot; class=&quot;form-control new-state&quot;&gt;&#39; + 
+                                             &#39;&lt;/div&gt;&#39; + 
+                                           &#39;&lt;/div&gt;&#39;);
+              });
+            ...
+            </code></pre>
+            <p>To make our code that inserts multiple lines of HTML into the DOM readable, I&#39;ve broken it up into strings on different lines, using the <code class="prettyprint">+</code> operator to concatenate them. I&#39;ve also spaced them like I would the HTML.</p>
+            <p>Finally, we need to add some looping through the address form fields to grab the inputs, create objects, and push them onto the contacts&#39; <code class="prettyprint">addresses</code> array property. We&#39;ll also need to make sure that, when we display the contact, we loop through all of the addresses. Here&#39;s the code:</p>
+            <div class="filename">scripts.js</div>
+            <pre><code class="prettyprint javascript">...
+              $(&quot;form#new-contact&quot;).submit(function(event) {
+                event.preventDefault();
+
+                var inputtedFirstName = $(&quot;input#new-first-name&quot;).val();
+                var inputtedLastName = $(&quot;input#new-last-name&quot;).val();
+
+                var newContact = { firstName: inputtedFirstName, lastName: inputtedLastName, addresses: [] };
+
+                $(&quot;.new-address&quot;).each(function() {
+                  var inputtedStreet = $(this).find(&quot;input.new-street&quot;).val();
+                  var inputtedCity = $(this).find(&quot;input.new-city&quot;).val();
+                  var inputtedState = $(this).find(&quot;input.new-state&quot;).val();
+
+                  var newAddress = { street: inputtedStreet, city: inputtedCity, state: inputtedState };
+                  newContact.addresses.push(newAddress);
+                });
+
+
+                $(&quot;ul#contacts&quot;).append(&quot;&lt;li&gt;&lt;span class=&#39;contact&#39;&gt;&quot; + newContact.firstName + &quot;&lt;/span&gt;&lt;/li&gt;&quot;);
+
+                $(&quot;.contact&quot;).last().click(function() {
+                  $(&quot;#show-contact&quot;).show();
+
+                  $(&quot;#show-contact h2&quot;).text(newContact.firstName);
+                  $(&quot;.first-name&quot;).text(newContact.firstName);
+                  $(&quot;.last-name&quot;).text(newContact.lastName);
+
+                  $(&quot;ul#addresses&quot;).text(&quot;&quot;);
+                  newContact.addresses.forEach(function(address) {
+                    $(&quot;ul#addresses&quot;).append(&quot;&lt;li&gt;&quot; + address.street + &quot;, &quot; + address.city + &quot;, &quot; + address.state + &quot;&lt;/li&gt;&quot;);
+                  });
+                });
+
+                $(&quot;input#new-first-name&quot;).val(&quot;&quot;);
+                $(&quot;input#new-last-name&quot;).val(&quot;&quot;);
+                $(&quot;input#new-street&quot;).val(&quot;&quot;);
+                $(&quot;input#new-city&quot;).val(&quot;&quot;);
+                $(&quot;input#new-state&quot;).val(&quot;&quot;);
+              });
+            });
+            </code></pre>
+            <p>Here, we have a new loop: if we want to loop through all of the elements in a jQuery selection, we use the <code class="prettyprint">.each()</code> method. It&#39;s a lot like <code class="prettyprint">forEach()</code> for arrays, but instead of taking a parameter that each element is assigned to, we use the <code class="prettyprint">this</code> keyword to refer to the current element.</p>
+            <p>We also are using the <code class="prettyprint">find()</code> method, which will look through all of the child elements of the selected element for any elements that match the criteria passed as an argument. There&#39;s a <code class="prettyprint">children()</code> method, too, but <code class="prettyprint">children()</code> will only traverse down a single level, whereas <code class="prettyprint">find()</code> will look at children, their children, and so on. Since our inputs are nested within <code class="prettyprint">form-group</code> <code class="prettyprint">&lt;div&gt;</code>s, we need to traverse down two levels.</p>
+            <p>Phew! That was a lot to take in.</p>
+            </div>
+            <div class="tab-pane" id="cheat-sheet">
+            <p>Loop through elements from a jQuery selection using <code class="prettyprint">.each</code>, and within the callback, `$(this) to refer to the current element:</p>
+            <pre><code class="prettyprint javascript">$(&quot;.new-address&quot;).each(function() {
+              var inputtedStreet = $(this).find(&quot;input.new-street&quot;).val();
+              var inputtedCity = $(this).find(&quot;input.new-city&quot;).val();
+              var inputtedState = $(this).find(&quot;input.new-state&quot;).val();
+
+              var newAddress = { street: inputtedStreet, city: inputtedCity, state: inputtedState };
+              newContact.addresses.push(newAddress);
+            });
+            </code></pre>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Labor Party | Code School</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom CSS -->
+    <link href="../../css/scrolling-nav.css" rel="stylesheet" type="text/css">
+    <link href="../../css/custom.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#page-top">Labor Party Code School</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="../../lessons/week-6/">Back to Week 6 Lessons</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <section id="arithmetic" class="videos-section monday tuesday">
+        <div class="container">
+
+            <div class="row">
+              <h1>OO Address Book Text</h1>
+                <div class="col-lg-12">
+            <p>As we start to make programs that go beyond a single method, they&#39;d quickly become unmanageably complex if we didn&#39;t have a good way to organize our code. The most common paradigm used to organize software these days is <strong>object-oriented design</strong>, or <strong>OO</strong>. OO uses these things called <strong>objects</strong> to organize code. Objects do many things, but we&#39;ll start with the most simple: they store information. For example, we can use some objects to store information about famous people in the Chrome JavaScript console:</p>
+            <pre><code class="prettyprint javascript">var person1 = { title: &quot;Dr.&quot;, lastName: &quot;Seuss&quot; };
+            var person2 = { title: &quot;President&quot;, lastName: &quot;Nixon&quot; };
+            var person3 = { title: &quot;Mr.&quot;, lastName: &quot;Rogers&quot; };
+            </code></pre>
+            <p>The <code class="prettyprint">title</code> and <code class="prettyprint">lastName</code> are called <strong>properties</strong>, and the information they store is called <strong>values</strong>. The variable name doesn&#39;t actually matter, except to make your code readable.</p>
+            <p>Since all of our people have the same properties, we can create a function that any of them can be passed into:</p>
+            <pre><code class="prettyprint javascript">var sayHello = function(person) {
+              alert(&quot;Hello, &quot; + person.title + &quot; &quot; + person.lastName + &quot;!&quot;);
+            };
+            </code></pre>
+            <p>Often, we&#39;ll want to work with a collection of similar objects, so we&#39;ll create an array to store our contacts in:</p>
+            <pre><code class="prettyprint javascript">var people = [person1, person3, person3];
+            people.forEach(function(person) {
+              sayHello(person);
+            });
+            </code></pre>
+            <p>Let&#39;s check out another example. We&#39;ll make some objects to represent animals and the sounds they make:</p>
+            <pre><code class="prettyprint javascript">var cow = { name: &#39;cow&#39;, sound: &#39;moo&#39; };
+            var horse = { name: &#39;horse&#39;, sound: &#39;neigh&#39; };
+            var fox = { name: &#39;fox&#39;, sound: &#39;???&#39; };
+
+            var farmAnimals = [cow, horse, fox];
+
+            var makeNoise = function(animal) {
+              console.log(&#39;The &#39; + animal.name + &#39; says &#39; + animal.sound + &#39;.&#39;);
+            };
+
+            farmAnimals.forEach(function(animal) {
+              makeNoise(animal);
+            });
+            </code></pre>
+            <p>Now that we know how to make objects, let&#39;s work on incorporating them into a web page. We&#39;ll start out with this code:</p>
+            <div class="filename">address-book.html</div>
+            <pre><code class="prettyprint html">&lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+              &lt;head&gt;
+                &lt;link href=&quot;css/bootstrap.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
+                &lt;link href=&quot;css/styles.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
+                &lt;script src=&quot;js/jquery-1.11.0.js&quot;&gt;&lt;/script&gt;
+                &lt;script src=&quot;js/scripts.js&quot;&gt;&lt;/script&gt;
+                &lt;title&gt;Address book&lt;/title&gt;
+              &lt;/head&gt;
+              &lt;body&gt;
+                &lt;div class=&quot;container&quot;&gt;
+                  &lt;h1&gt;Address book&lt;/h1&gt;
+
+                  &lt;div class=&quot;row&quot;&gt;
+                    &lt;div class=&quot;col-md-6&quot;&gt;
+                      &lt;h2&gt;Add a contact:&lt;/h2&gt;
+                      &lt;form id=&quot;new-contact&quot;&gt;
+                        &lt;div class=&quot;form-group&quot;&gt;
+                          &lt;label for=&quot;new-first-name&quot;&gt;First name&lt;/label&gt;
+                          &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;new-first-name&quot;&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;form-group&quot;&gt;
+                          &lt;label for=&quot;new-last-name&quot;&gt;Last name&lt;/label&gt;
+                          &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;new-last-name&quot;&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;form-group&quot;&gt;
+                          &lt;label for=&quot;new-address&quot;&gt;Address&lt;/label&gt;
+                          &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;new-address&quot;&gt;
+                        &lt;/div&gt;
+
+                        &lt;button type=&quot;submit&quot; class=&quot;btn&quot;&gt;Add&lt;/button&gt;
+                      &lt;/form&gt;
+
+                      &lt;h2&gt;Contacts:&lt;/h2&gt;
+                      &lt;ul id=&quot;contacts&quot;&gt;
+
+                      &lt;/ul&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/body&gt;
+            &lt;/html&gt;
+            </code></pre>
+            <div class="filename">scripts.js</div>
+            <pre><code class="prettyprint javascript">$(document).ready(function() {
+              $(&quot;form#new-contact&quot;).submit(function(event) {
+                event.preventDefault();
+
+                var inputtedFirstName = $(&quot;input#new-first-name&quot;).val();
+                var inputtedLastName = $(&quot;input#new-last-name&quot;).val();
+                var inputtedAddress = $(&quot;input#new-address&quot;).val();
+                var newContact = { firstName: inputtedFirstName, lastName: inputtedLastName, address: inputtedAddress };
+
+                $(&quot;ul#contacts&quot;).append(&quot;&lt;li&gt;&lt;span class=&#39;contact&#39;&gt;&quot; + newContact.firstName + &quot; &quot; + newContact.lastName + &quot;&lt;/span&gt;&lt;/li&gt;&quot;);
+
+                $(&quot;input#new-first-name&quot;).val(&quot;&quot;);
+                $(&quot;input#new-last-name&quot;).val(&quot;&quot;);
+                $(&quot;input#new-address&quot;).val(&quot;&quot;);
+              });
+            });
+            </code></pre>
+            <p>Now, if we fire up our web page, each time we add a contact, it&#39;s added to the list.</p>
+            <p>This isn&#39;t very exciting. We could have done this all with jQuery and not mucked around with objects. Let&#39;s make our page more complex to show off the power of objects. We&#39;ll add a feature where if a user clicks a contact, they will be able to see the full information on the contact.</p>
+            <p>First, we&#39;ll update our HTML, and add the following code at the end of our <code class="prettyprint">&lt;div class=&quot;row&quot;&gt;</code>:</p>
+            <div class="filename">address-book.html</div>
+            <pre><code class="prettyprint html">&lt;div class=&quot;col-md-6&quot;&gt;
+              &lt;div id=&quot;show-contact&quot;&gt;
+                &lt;h2&gt;&lt;/h2&gt;
+
+                &lt;p&gt;First name: &lt;span class=&quot;first-name&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+                &lt;p&gt;Last name: &lt;span class=&quot;last-name&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+                &lt;p&gt;Address: &lt;span class=&quot;address&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            </code></pre>
+            <p>And we&#39;ll hide our contact&#39;s &quot;show&quot; area at first, and add a class to make some elements look clickable:</p>
+            <div class="filename">styles.css</div>
+            <pre><code class="prettyprint css">#show-contact {
+              display: none;
+            }
+
+            .contact {
+              cursor: pointer;
+              color: #0088cc;
+            }
+
+            .contact:hover {
+              text-decoration: underline;
+            }
+            </code></pre>
+            <p>Now, let&#39;s update our JavaScript, and add this to the end of our form submit callback:</p>
+            <div class="filename">scripts.js</div>
+            <pre><code class="prettyprint javascript">$(&quot;.contact&quot;).last().click(function() {
+              $(&quot;#show-contact&quot;).show();
+              $(&quot;#show-contact h2&quot;).text(newContact.firstName + &quot; &quot; + newContact.lastName);
+              $(&quot;.first-name&quot;).text(newContact.firstName);
+              $(&quot;.last-name&quot;).text(newContact.lastName);
+              $(&quot;.address&quot;).text(newContact.address);
+            });
+            </code></pre>
+            <p>Can you imagine trying to keep track of everything on this page using just jQuery? Hopefully you&#39;re starting to see the power of object-oriented design now.</p>
+            </div>
+            <div class="tab-pane" id="cheat-sheet">
+            <p>Use objects to store information.</p>
+            <p>Example objects:</p>
+            <pre><code class="prettyprint javascript">var person1 = { title: &quot;Dr.&quot;, lastName: &quot;Seuss&quot; };
+            var cow = { name: &#39;cow&#39;, sound: &#39;moo&#39; };
+            var newContact = { firstName: inputtedFirstName, lastName: inputtedLastName, address: inputtedAddress };
+            </code></pre>
+            <p>In the first example, <code class="prettyprint">title</code> and <code class="prettyprint">lastName</code> are called <strong>properties</strong>, and <code class="prettyprint">&quot;Dr&quot;</code> and <code class="prettyprint">&quot;Seuss&quot;</code> called <strong>values</strong>. The variable name doesn&#39;t actually matter except for code readability.</p>
+            <p>Pass objects into a function:</p>
+            <pre><code class="prettyprint javascript">var people = [person1, person3, person3];
+            people.forEach(function(person) {
+              sayHello(person);
+            });
+            </code></pre>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+</body>
+</html>

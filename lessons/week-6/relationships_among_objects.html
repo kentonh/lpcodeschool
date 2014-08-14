@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Labor Party | Code School</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom CSS -->
+    <link href="../../css/scrolling-nav.css" rel="stylesheet" type="text/css">
+    <link href="../../css/custom.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#page-top">Labor Party Code School</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="../../lessons/week-6/">Back to Week 6 Lessons</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <section id="arithmetic" class="videos-section monday tuesday">
+        <div class="container">
+
+            <div class="row">
+              <h1>Relationships among objects</h1>
+                <div class="col-lg-12">
+            <p>Let&#39;s learn how to build more complex pages that use multiple objects. We&#39;ll start out by playing around in the console, then build out our address book a bit more.</p>
+            <p>We&#39;ll begin by making some objects that represent cities and countries:</p>
+            <pre><code class="prettyprint javascript">var pdx = { name: &quot;Portland&quot; };
+            var sfo = { name: &quot;San Francisco&quot; };
+            var sea = { name: &quot;Seattle&quot; };
+            var cso = { name: &quot;Aktau&quot; };
+            var dzn = { name: &quot;Zhezkazgan&quot; };
+
+            var usa = { name: &quot;United States of America&quot; };
+            var kazakhstan = { name: &quot;Kazakhstan&quot; };
+            var uruguay = { name: &quot;Uruguay&quot; };
+            </code></pre>
+            <p>Very often, we&#39;ll want to create associations between objects; for example, we may want to know a list of cities in a particular country. Here&#39;s how we can do this:</p>
+            <pre><code class="prettyprint javascript">var pdx = { name: &quot;Portland&quot; };
+            var sfo = { name: &quot;San Francisco&quot; };
+            var sea = { name: &quot;Seattle&quot; };
+            var cso = { name: &quot;Aktau&quot; };
+            var dzn = { name: &quot;Zhezkazgan&quot; };
+
+            var usa = { name: &quot;United States of America&quot;, cities: [pdx, sfo, sea] };
+            var kazakhstan = { name: &quot;Kazakhstan&quot;, cities: [cso, dzn] };
+            var uruguay = { name: &quot;Uruguay&quot;, cities: [] };
+            </code></pre>
+            <p>It&#39;s very common to have a property of an object that&#39;s an array with other objects contained within it. Now we can do things like list all of the cities we know about for a country:</p>
+            <pre><code class="prettyprint javascript">usa.cities.forEach(function(city) {
+              console.log(&quot;Let&#39;s go to &quot; + city.name + &quot;!&quot;);
+            });
+            </code></pre>
+            <p>We can also add cities to a country after the object is initially created:</p>
+            <pre><code class="prettyprint javascript">var mlz = { name: &quot;Melo&quot; };
+            uruguay.cities.push(mlz);
+            </code></pre>
+            <p><code class="prettyprint">uruguay.cities</code> returns an array, and then we <code class="prettyprint">push()</code> the new object onto the array.</p>
+            <p>Let&#39;s look at one more example before applying this to our address book:</p>
+            <pre><code class="prettyprint javascript">var tomatoes = { name: &quot;Tomatoes&quot;, price: 2.99 };
+            var cucumbers = { name: &quot;Cucumbers&quot;, price: 0.99 };
+            var onions = { name: &quot;Onions&quot;, price: 0.79 };
+
+            var groceryStore = { name: &quot;Michael&#39;s corner market&quot;, products: [tomatoes, cucumbers, onions] };
+
+            var iPhone = { name: &quot;iPhone&quot;, price: 699 };
+            var android = { name: &quot;Android&quot;, price: 499 };
+            var windowsPhone = { name: &quot;Windows Phone&quot;, price: 399 };
+
+            var phoneStore = { name: &quot;RadioShack&quot;, products: [iPhone, android, windowsPhone] };
+
+            var stores = [groceryStore, phoneStore];
+
+            stores.forEach(function(store) {
+              console.log(store.name + &quot; sells:&quot;);
+              store.products.forEach(function(product) {
+                console.log(product.name);
+              });
+              console.log(&quot;\n&quot;);
+            });
+            </code></pre>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+</body>
+</html>
